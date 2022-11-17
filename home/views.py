@@ -1,10 +1,29 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
-def index(response):
-    return HttpResponse("Hey joy welcome to the home page")
-    
+def index(request):
+    context={
+        "joy":"joy adhikary",
+        "joy2":"joy"
+    }
+    return render(request,'joy.html',context)
+    # return HttpResponse("Hey joy welcome to the home page")
 
-def hey(response):
-    return HttpResponse("Hey joy welcome to the 2 page")
-    
+
+# load template one way 
+
+def boot(request):
+    return render(request,'bootstrap.html')
+
+# load template another way 
+
+def tem(request):
+  template = loader.get_template('bootstrap.html')
+  return HttpResponse(template.render())
+
+def hey(request):
+    return HttpResponse("Hey joy welcome to the second page")
+
+def joy(response):
+    return HttpResponse("hello from joy adhikary")
