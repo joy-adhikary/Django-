@@ -25,5 +25,5 @@ def tem(request):
 def hey(request):
     return HttpResponse("Hey joy welcome to the second page")
 
-def joy(response):
-    return HttpResponse("hello from joy adhikary")
+def joy(request,dynamic_value):
+    return HttpResponse(dynamic_value)
